@@ -1,0 +1,259 @@
+@import url("resets.css");
+@import url("variables.css");
+
+html {
+  font-family: var(--font-SF-Pro-Text-Regular);
+}
+
+body {
+  min-width: 20rem;
+  background-color: var(--body-bg);
+  color: var(--body-fg);
+}
+
+/* ===== Utilities ===== */
+.ai-text {
+  background-image: var(--ai-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  display: inline;
+}
+
+.heading-text {
+  background-image: var(--heading-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  display: inline;
+}
+
+.button {
+  background-color: var(--header-link-bg);
+  color: var(--header-link-fg);
+  text-align: center;
+  border: 1px solid var(--header-link-bg);
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+em {
+  font-style: normal;
+  color: var(--header-fg);
+}
+
+/* ===== Header ===== */
+header {
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  border-bottom: 1px solid var(--separator);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  min-height: 48px;
+  position: sticky;
+  top: 0;
+  padding: 0.6875rem 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid transparent;
+  padding: 0 1rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 1.1875rem;
+  line-height: 1.2622;
+  letter-spacing: 0.012em;
+  opacity: 0.92;
+  font-family: var(--font-SF-Pro-Display-Semibold);
+  margin-right: auto;
+}
+
+header button {
+  opacity: 0.8;
+  transition: opacity 300ms;
+}
+
+header button:hover {
+  opacity: 1;
+}
+
+header a {
+  font-size: 0.75rem;
+  line-height: 1.3333733333;
+  letter-spacing: -0.01em;
+  padding: 0.1875rem 0.625rem;
+  min-width: 2.813rem;
+  margin-left: 1rem;
+}
+
+@media only screen and (min-width: 52.125rem) {
+  header .container {
+    padding: 0 1.375rem;
+  }
+
+  header h1 {
+    font-size: 1.3125rem;
+    line-height: 1.3335;
+  }
+}
+
+/* ===== Section - Welcome ===== */
+
+.welcome {
+  padding: 2.5rem 0 5.9375rem;
+}
+
+.welcome .content {
+  padding: 0 1rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.welcome .content h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.1666666667;
+  letter-spacing: 0.009em;
+  font-family: var(--font-SF-Pro-Display-Semibold);
+  color: var(--title);
+}
+
+.welcome .content .tagline {
+  text-align: center;
+  font-family: var(--font-SF-Pro-Display-Semibold);
+  font-size: 2.1875rem;
+}
+
+.welcome .content picture,
+.welcome .content picture img {
+  max-width: 19.5rem;
+  margin: 2.3125rem auto 2.8rem;
+}
+
+.welcome .content .description {
+  text-align: center;
+}
+
+.welcome .content .description .ai {
+  font-family: var(--font-SF-Pro-Display-Semibold);
+  font-size: 1.3125rem;
+  line-height: 1.1904761905;
+  letter-spacing: 0.011em;
+}
+
+.welcome .content .description a {
+  font-size: 1.0625rem;
+  line-height: 1.1764805882;
+  letter-spacing: -0.022em;
+  padding: 0.6875rem 1.3125rem;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.welcome .content .description .price {
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-family: var(--font-SF-Pro-Text-Semibold);
+  color: var(--header-fg);
+  line-height: 1.2857742857;
+  letter-spacing: -0.016em;
+}
+
+.welcome .content .description .info {
+  font-family: var(--font-SF-Pro-Display-Semibold);
+  font-size: 1.3125rem;
+  line-height: 1.1904761905;
+  letter-spacing: 0.011em;
+  max-width: 23.4375rem;
+  margin: 3.125rem auto 0;
+}
+
+@media only screen and (min-width: 45.875rem) {
+  .welcome {
+    padding: 5.625rem 0 8.4375rem;
+  }
+
+  .welcome .content h2 {
+    font-size: 1.75rem;
+    line-height: 1.1428571429;
+    letter-spacing: 0.007em;
+  }
+
+  .welcome .content .tagline {
+    font-size: 3.5rem;
+    line-height: 1.0714285714;
+    margin-top: 0.875rem;
+  }
+
+  .welcome .content picture,
+  .welcome .content picture img {
+    max-width: 45.25rem;
+    margin: 4.6875rem auto;
+  }
+
+  .welcome .content .description .ai {
+    font-size: 1.75rem;
+    line-height: 1.1428571429;
+    letter-spacing: 0.007em;
+  }
+
+  .welcome .content .description .price {
+    font-size: 1.0625rem;
+    line-height: 1.2353641176;
+    letter-spacing: -0.022em;
+  }
+
+  .welcome .content .description .info {
+    max-width: 36rem;
+  }
+}
+
+@media only screen and (min-width: 52.125rem) {
+  .welcome .content {
+    padding: 0 1.375rem;
+  }
+}
+
+@media only screen and (min-width: 66.75rem) {
+  .welcome {
+    padding: 3.25rem 0 8.75rem;
+  }
+
+  .welcome .content h2 {
+    font-size: 2rem;
+    line-height: 1.125;
+    letter-spacing: 0.004em;
+  }
+
+  .welcome .content .tagline {
+    font-size: 3.75rem;
+  }
+
+  .welcome .content picture,
+  .welcome .content picture img {
+    max-width: 51.75rem;
+    margin: 2.375rem auto 2.6rem;
+  }
+
+  .welcome .content .description .ai {
+    font-size: 2rem;
+    line-height: 1.125;
+    letter-spacing: 0.004em;
+  }
+
+  .welcome .content .description a {
+    margin: 1.5rem 0;
+  }
+
+  .welcome .content .description .info {
+    font-size: 1.5rem;
+    line-height: 1.1666666667;
+    letter-spacing: 0.009em;
+    max-width: 51rem;
+  }
+}
