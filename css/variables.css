@@ -27,7 +27,7 @@
 
   --title: rgb(var(--title-light));
 
-  --heading-gradient: linear-gradient(90deg, #022640, #5786ab);
+  --heading-gradient: linear-gradient(90deg, rgb(var(--black)), #5786ab);
 }
 
 .dark {
@@ -41,5 +41,5 @@
 
   --title: rgb(var(--title-dark));
 
-  --heading-gradient: linear-gradient(90deg, #c9cdcf, #5786ab);
+  --heading-gradient: linear-gradient(90deg, rgb(var(--white)), #5786ab);
 }

@@ -12,6 +12,7 @@ body {
 }
 
 /* ===== Utilities ===== */
+
 .ai-text {
   background-image: var(--ai-gradient);
   background-clip: text;
@@ -43,6 +44,7 @@ em {
 }
 
 /* ===== Header ===== */
+
 header {
   background-color: var(--header-bg);
   color: var(--header-fg);
@@ -80,15 +82,6 @@ header button {
 
 header button:hover {
   opacity: 1;
-}
-
-header a {
-  font-size: 0.75rem;
-  line-height: 1.3333733333;
-  letter-spacing: -0.01em;
-  padding: 0.1875rem 0.625rem;
-  min-width: 2.813rem;
-  margin-left: 1rem;
 }
 
 @media only screen and (min-width: 52.125rem) {
