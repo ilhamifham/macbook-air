@@ -18,7 +18,7 @@
 
 .light {
   --body-bg: rgb(var(--white));
-  --body-fg: rgba(var(--black), 0.6);
+  --body-fg: rgba(var(--black), 0.5);
 
   --header-bg: rgba(var(--header-light));
   --header-fg: rgb(var(--black));
@@ -27,12 +27,14 @@
 
   --title: rgb(var(--title-light));
 
-  --heading-gradient: linear-gradient(90deg, rgb(var(--black)), #5786ab);
+  --image-bg: rgba(var(--black), 0.03);
+
+  --heading-gradient: linear-gradient(90deg, rgb(var(--black)) 0%, #5786ab 100%);
 }
 
 .dark {
   --body-bg: rgb(var(--black));
-  --body-fg: rgba(var(--white), 0.6);
+  --body-fg: rgba(var(--white), 0.5);
 
   --header-bg: rgba(var(--header-dark));
   --header-fg: rgb(var(--white));
@@ -41,5 +43,7 @@
 
   --title: rgb(var(--title-dark));
 
-  --heading-gradient: linear-gradient(90deg, rgb(var(--white)), #5786ab);
+  --image-bg: rgba(var(--white), 0.1);
+
+  --heading-gradient: linear-gradient(90deg, rgb(var(--white)) 0%, #5786ab 100%);
 }
