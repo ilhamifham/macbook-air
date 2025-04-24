@@ -14,6 +14,8 @@
   --header-link-fg: rgb(var(--white));
 
   --ai-gradient: linear-gradient(97deg, #0096ff, #bb64ff 42%, #f2416b 74%, #eb7500);
+
+  --radius: 10px;
 }
 
 .light {
@@ -28,6 +30,8 @@
   --title: rgb(var(--title-light));
 
   --image-bg: rgba(var(--black), 0.03);
+
+  --shadow: rgba(var(--black), 0.25);
 
   --heading-gradient: linear-gradient(90deg, rgb(var(--black)) 0%, #5786ab 100%);
 }
@@ -44,6 +48,8 @@
   --title: rgb(var(--title-dark));
 
   --image-bg: rgba(var(--white), 0.1);
+
+  --shadow: rgba(var(--white), 0.25);
 
   --heading-gradient: linear-gradient(90deg, rgb(var(--white)) 0%, #5786ab 100%);
 }

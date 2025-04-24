@@ -21,3 +21,25 @@ toggleTheme.addEventListener("click", function () {
     localStorage.setItem("theme", "light");
   }
 });
+
+const inputs = document.querySelectorAll(".color-picker input");
+const pictures = document.querySelectorAll(".gallery .picture-3");
+const pictures2 = document.querySelectorAll(".gallery .picture-4");
+
+inputs.forEach(function (input, index) {
+  input.addEventListener("change", function () {
+    inputs.forEach(function (input) {
+      input.removeAttribute("checked");
+    });
+    pictures.forEach(function (picture) {
+      picture.style.display = "none";
+    });
+    pictures2.forEach(function (picture) {
+      picture.style.display = "none";
+    });
+
+    inputs[index].setAttribute("checked", "");
+    pictures[index].removeAttribute("style");
+    pictures2[index].removeAttribute("style");
+  });
+});
