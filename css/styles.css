@@ -1,10 +1,6 @@
 @import url("resets.css");
 @import url("variables.css");
 
-html {
-  font-family: var(--font-SF-Pro-Text-Regular);
-}
-
 body {
   min-width: 20rem;
   background-color: var(--body-bg);
