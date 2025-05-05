@@ -12,19 +12,33 @@
     <header>
       <div class="content">
         <h1>MacBook&nbsp;Air</h1>
-        <button id="theme-switcher">
-          <svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="m 10.016,14.015942 c 2.2091,0 4,-1.7909 4,-4 0,-2.20914 -1.7909,-4 -4,-4 z" fill="currentColor" />
-            <path
+        <button>
+          <svg viewBox="0 0 16 9" style="width: 16px; height: 9px">
+            <polyline
+              shape-rendering="geometricPrecision"
+              stroke="currentColor"
+              stroke-linecap="round"
+              vector-effect="non-scaling-stroke"
+              stroke-linejoin="round"
+              fill="none"
               fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="m 10.016,0.01594203 c -5.52285,0 -10,4.47714997 -10,9.99999997 0,5.5228 4.47715,10 10,10 5.5228,0 10,-4.4772 10,-10 0,-5.52285 -4.4772,-9.99999997 -10,-9.99999997 z m 0,1.99999997 v 4 c -2.20914,0 -4,1.79086 -4,4 0,2.2091 1.79086,4 4,4 v 4 c 4.4183,0 8,-3.5817 8,-8 0,-4.41828 -3.5817,-8 -8,-8 z"
-              fill="currentColor"
-            />
+              points="15.265 .835 8 8.167 .735 .835"
+            ></polyline>
           </svg>
         </button>
+        <nav>
+          <ul>
+            <li>
+              <a href="/" class="active">Overview</a>
+            </li>
+            <li>
+              <a href="pages/tech.html">Tech Specs</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
+    <div class="curtain"></div>
     <main>
       <section class="welcome">
         <div class="content">
@@ -36,7 +50,7 @@
             <source srcset="assets/images/hero-large@2x.png" media="(min-width:66.75rem)" />
             <source srcset="assets/images/hero-medium@2x.png" media="(min-width:45.875rem)" />
             <source srcset="assets/images/hero-small@2x.png" />
-            <img src="assets/images/hero-large@2x.png" alt="Two open MacBook Air laptops in Sky Blue color forming arrow shape, emphasizing narrow profile" loading="lazy" />
+            <img src="assets/images/hero-large@2x.png" alt="Two open MacBook Air laptops in Sky Blue color forming arrow shape, emphasizing narrow profile" />
           </picture>
           <div class="description">
             <p class="ai">
@@ -63,7 +77,6 @@
             <img
               src="assets/images/design-large@2x.png"
               alt="Partially open 13-inch and 15-inch MacBook Air  — one screen shows design work in progress, the other shows multitasking across email and spreadsheets"
-              loading="lazy"
             />
           </picture>
           <p class="info">
@@ -75,7 +88,7 @@
               <source srcset="assets/images/design2-large@2x.png" media="(min-width:66.75rem)" />
               <source srcset="assets/images/design2-medium@2x.png" media="(min-width:45.875rem)" />
               <source srcset="assets/images/design2-small@2x.png" />
-              <img src="assets/images/design2-large@2x.png" alt="13-inch and 15-inch MacBook Air back-to-back, showing size difference" loading="lazy" />
+              <img src="assets/images/design2-large@2x.png" alt="13-inch and 15-inch MacBook Air back-to-back, showing size difference" />
             </picture>
             <div class="size-info">
               <div>
@@ -97,25 +110,25 @@
                 <source srcset="assets/images/design3-large@2x.png" media="(min-width:66.75rem)" />
                 <source srcset="assets/images/design3-medium@2x.png" media="(min-width:45.875rem)" />
                 <source srcset="assets/images/design3-small@2x.png" />
-                <img src="assets/images/design3-large@2x.png" alt="Front and top view of MacBook Air in Sky Blue color" loading="lazy" />
+                <img src="assets/images/design3-large@2x.png" alt="Front and top view of MacBook Air in Sky Blue color" />
               </picture>
               <picture class="picture-3" style="display: none">
                 <source srcset="assets/images/design4-large@2x.png" media="(min-width:66.75rem)" />
                 <source srcset="assets/images/design4-medium@2x.png" media="(min-width:45.875rem)" />
                 <source srcset="assets/images/design4-small@2x.png" />
-                <img src="assets/images/design4-large@2x.png" alt="Front and top view of MacBook Air in Silver color" loading="lazy" />
+                <img src="assets/images/design4-large@2x.png" alt="Front and top view of MacBook Air in Silver color" />
               </picture>
               <picture class="picture-3" style="display: none">
                 <source srcset="assets/images/design5-large@2x.png" media="(min-width:66.75rem)" />
                 <source srcset="assets/images/design5-medium@2x.png" media="(min-width:45.875rem)" />
                 <source srcset="assets/images/design5-small@2x.png" />
-                <img src="assets/images/design5-large@2x.png" alt="Front and top view of MacBook Air in Starlight color" loading="lazy" />
+                <img src="assets/images/design5-large@2x.png" alt="Front and top view of MacBook Air in Starlight color" />
               </picture>
               <picture class="picture-3" style="display: none">
                 <source srcset="assets/images/design6-large@2x.png" media="(min-width:66.75rem)" />
                 <source srcset="assets/images/design6-medium@2x.png" media="(min-width:45.875rem)" />
                 <source srcset="assets/images/design6-small@2x.png" />
-                <img src="assets/images/design6-large@2x.png" alt="Front and top view of MacBook Air in Midnight color" loading="lazy" />
+                <img src="assets/images/design6-large@2x.png" alt="Front and top view of MacBook Air in Midnight color" />
               </picture>
               <div class="color-picker">
                 <div class="skyblue">
@@ -154,34 +167,48 @@
                   <source srcset="assets/images/design7-large@2x.png" media="(min-width:66.75rem)" />
                   <source srcset="assets/images/design7-medium@2x.png" media="(min-width:45.875rem)" />
                   <source srcset="assets/images/design7-small@2x.png" />
-                  <img src="assets/images/design7-large@2x.png" alt="MacBook Air in Sky Blue color with color-matched MagSafe cable" loading="lazy" />
+                  <img src="assets/images/design7-large@2x.png" alt="MacBook Air in Sky Blue color with color-matched MagSafe cable" />
                 </picture>
                 <picture class="picture-4" style="display: none">
                   <source srcset="assets/images/design8-large@2x.png" media="(min-width:66.75rem)" />
                   <source srcset="assets/images/design8-medium@2x.png" media="(min-width:45.875rem)" />
                   <source srcset="assets/images/design8-small@2x.png" />
-                  <img src="assets/images/design8-large@2x.png" alt="MacBook Air in Silver color with color-matched MagSafe cable" loading="lazy" />
+                  <img src="assets/images/design8-large@2x.png" alt="MacBook Air in Silver color with color-matched MagSafe cable" />
                 </picture>
                 <picture class="picture-4" style="display: none">
                   <source srcset="assets/images/design9-large@2x.png" media="(min-width:66.75rem)" />
                   <source srcset="assets/images/design9-medium@2x.png" media="(min-width:45.875rem)" />
                   <source srcset="assets/images/design9-small@2x.png" />
-                  <img src="assets/images/design9-large@2x.png" alt="MacBook Air in Starlight color with color-matched MagSafe cable" loading="lazy" />
+                  <img src="assets/images/design9-large@2x.png" alt="MacBook Air in Starlight color with color-matched MagSafe cable" />
                 </picture>
                 <picture class="picture-4" style="display: none">
                   <source srcset="assets/images/design10-large@2x.png" media="(min-width:66.75rem)" />
                   <source srcset="assets/images/design10-medium@2x.png" media="(min-width:45.875rem)" />
                   <source srcset="assets/images/design10-small@2x.png" />
-                  <img src="assets/images/design10-large@2x.png" alt="MacBook Air in Midnight color with color-matched MagSafe cable" loading="lazy" />
+                  <img src="assets/images/design10-large@2x.png" alt="MacBook Air in Midnight color with color-matched MagSafe cable" />
                 </picture>
               </div>
               <div>
-                <!-- <picture class="picture-5">
-                  <source srcset="assets/images/design7-large.png, assets/images/design7-large@2x.png 2x" media="(min-width:66.75rem)" />
-                  <source srcset="assets/images/design7-medium.png, assets/images/design7-medium@2x.png 2x" media="(min-width:45.875rem)" />
-                  <source srcset="assets/images/design7-small.png, assets/images/design7-small@2x.png 2x" />
-                  <img src="assets/images/design7-large.png" alt="MacBook Air in Sky Blue color with color-matched MagSafe cable" />
-                </picture> -->
+                <picture class="picture-5">
+                  <source srcset="assets/images/design11-large@2x.png" media="(min-width:66.75rem)" />
+                  <source srcset="assets/images/design11-medium@2x.png" />
+                  <img src="assets/images/design11-large@2x.png" alt="Side view of MacBook Air in Sky Blue color" />
+                </picture>
+                <picture class="picture-5" style="display: none">
+                  <source srcset="assets/images/design12-large@2x.png" media="(min-width:66.75rem)" />
+                  <source srcset="assets/images/design12-medium@2x.png" />
+                  <img src="assets/images/design12-large@2x.png" alt="Side view of MacBook Air in Silver color" />
+                </picture>
+                <picture class="picture-5" style="display: none">
+                  <source srcset="assets/images/design13-large@2x.png" media="(min-width:66.75rem)" />
+                  <source srcset="assets/images/design13-medium@2x.png" />
+                  <img src="assets/images/design13-large@2x.png" alt="Side view of MacBook Air in Starlight color" />
+                </picture>
+                <picture class="picture-5" style="display: none">
+                  <source srcset="assets/images/design14-large@2x.png" media="(min-width:66.75rem)" />
+                  <source srcset="assets/images/design14-medium@2x.png" />
+                  <img src="assets/images/design14-large@2x.png" alt="Side view of MacBook Air in Midnight color" />
+                </picture>
               </div>
             </div>
           </div>

@@ -1,17 +1,21 @@
 @import url("resets.css");
 @import url("variables.css");
 
+html {
+  font-family: var(--font-SF-Pro-Text-Regular);
+}
+
 body {
   min-width: 20rem;
-  background-color: var(--body-bg);
-  color: var(--body-fg);
+  background-color: var(--color-bg);
+  color: var(--color-fg-1);
   font-size: 1.0625rem;
   line-height: 1.4705882353;
   letter-spacing: -0.022em;
 }
 
 :focus-visible {
-  outline-color: var(--header-link-bg);
+  outline-color: dodgerblue;
 }
 
 /* ===== Utilities ===== */
@@ -62,34 +66,133 @@ em {
 /* ===== Header ===== */
 
 header {
-  background-color: var(--header-bg);
-  color: var(--header-fg);
-  border-bottom: 1px solid var(--separator);
+  background-color: var(--color-bg-2);
+  color: var(--color-fg);
+  border-bottom: 1px solid var(--color-bg-1);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
   min-height: 48px;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1;
+  left: 0;
+  right: 0;
+  z-index: 2;
   padding: 0.6875rem 0;
 }
 
 header .content {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.0625rem;
 }
 
 header h1 {
+  font-family: var(--font-SF-Pro-Display-Semibold);
   font-size: 1.1875rem;
   line-height: 1.2622;
   letter-spacing: 0.012em;
-  opacity: 0.92;
-  font-family: var(--font-SF-Pro-Display-Semibold);
+  opacity: 0.88;
   margin-right: auto;
 }
 
 header button {
-  border-radius: 100px;
+  height: 1.4985rem;
+}
+
+header nav {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+header nav.nav-open {
+  height: inherit;
+  opacity: inherit;
+  visibility: inherit;
+  overflow: inherit;
+}
+
+header ul {
+  padding: 1.3125rem 1rem 1rem;
+}
+
+header li a {
+  font-size: 0.875rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  position: relative;
+}
+
+header li .active {
+  opacity: 1;
+}
+
+header li .active::before {
+  content: "";
+  width: 1px;
+  height: 0.75rem;
+  position: absolute;
+  background-color: var(--color-fg);
+  left: -1rem;
+}
+
+.curtain {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #e8e8ed66;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.curtain.curtain-open {
+  opacity: inherit;
+  visibility: inherit;
+}
+
+@media only screen and (min-width: 52.125rem) {
+  header button {
+    display: none;
+  }
+
+  header nav {
+    height: inherit;
+    opacity: inherit;
+    visibility: inherit;
+    overflow: inherit;
+    width: inherit;
+  }
+
+  header ul {
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  header li a {
+    font-size: 0.75rem;
+    line-height: 22px;
+    height: auto;
+  }
+
+  header li .active::before {
+    width: 100%;
+    height: 1px;
+    left: inherit;
+    bottom: -0.8125rem;
+  }
 }
 
 @media only screen and (min-width: 66.75rem) {
@@ -97,12 +200,16 @@ header button {
     font-size: 1.3125rem;
     line-height: 1.3335;
   }
+
+  header li .active::before {
+    bottom: -0.938rem;
+  }
 }
 
 /* ===== Section - Welcome ===== */
 
 .welcome {
-  padding: 2.5rem 0 5.9375rem;
+  padding: 5.5rem 0 5.9375rem;
 }
 
 .welcome .content h2 {
@@ -166,7 +273,7 @@ header button {
 
 @media only screen and (min-width: 45.875rem) {
   .welcome {
-    padding: 5.625rem 0 8.4375rem;
+    padding: 8.625rem 0 8.4375rem;
   }
 
   .welcome .content h2 {
@@ -205,7 +312,7 @@ header button {
 
 @media only screen and (min-width: 66.75rem) {
   .welcome {
-    padding: 3.25rem 0 8.75rem;
+    padding: 6.5rem 0 8.75rem;
   }
 
   .welcome .content h2 {
@@ -531,6 +638,9 @@ header button {
   .container .gallery:last-child .picture-5 {
     height: 100%;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .design .content .picture-3 img {
@@ -546,6 +656,10 @@ header button {
   .design .content .picture-4 img {
     width: 21.25rem;
     transform: translateY(0);
+  }
+
+  .design .content .picture-5 img {
+    width: 13.375rem;
   }
 }
 
@@ -618,5 +732,9 @@ header button {
 
   .container .gallery:first-child .picture-3 {
     margin: 0 0 1.375rem;
+  }
+
+  .design .content .picture-5 img {
+    width: 18.875rem;
   }
 }

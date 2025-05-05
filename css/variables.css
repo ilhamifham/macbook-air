@@ -3,9 +3,15 @@
 
 :root {
   --font-SF-Pro-Display-Semibold: "SF Pro Display Semibold";
-
   --font-SF-Pro-Text-Regular: "SF Pro Text Regular";
   --font-SF-Pro-Text-Semibold: "SF Pro Text Semibold";
+
+  --color-bg: #ffffff;
+  --color-bg-1: #d0d1d2;
+  --color-bg-2: #fafafccc;
+  --color-fg: #000000;
+  --color-fg-1: #86868b;
+  --color-fg-2: #1d1d1f;
 }
 
 :root {
@@ -15,9 +21,7 @@
   --ai-gradient: linear-gradient(97deg, #0096ff, #bb64ff 42%, #f2416b 74%, #eb7500);
 
   --radius: 10px;
-}
 
-.light {
   --body-bg: rgb(var(--white));
   --body-fg: rgba(var(--black), 0.5);
 
@@ -33,22 +37,4 @@
   --shadow: rgba(var(--black), 0.25);
 
   --heading-gradient: linear-gradient(90deg, rgb(var(--black)) 0%, #5786ab 100%);
-}
-
-.dark {
-  --body-bg: rgb(var(--black));
-  --body-fg: rgba(var(--white), 0.5);
-
-  --header-bg: rgba(var(--header-dark));
-  --header-fg: rgb(var(--white));
-
-  --separator: rgb(var(--separator-dark));
-
-  --title: rgb(var(--title-dark));
-
-  --image-bg: rgba(var(--white), 0.1);
-
-  --shadow: rgba(var(--white), 0.25);
-
-  --heading-gradient: linear-gradient(90deg, rgb(var(--white)) 0%, #5786ab 100%);
 }

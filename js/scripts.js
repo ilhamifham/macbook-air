@@ -1,45 +1,49 @@
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-const toggleTheme = document.getElementById("theme-switcher");
-const theme = localStorage.getItem("theme");
+const header = document.querySelector("header");
+const navButton = document.querySelector("header button");
+const nav = document.querySelector("header nav");
+const curtain = document.querySelector(".curtain");
 
-if (theme) {
-  document.body.classList.add(theme);
-} else if (prefersDarkScheme.matches) {
-  document.body.classList.add("dark");
-} else {
-  document.body.classList.add("light");
+function handleNav() {
+  header.removeAttribute("style");
+  nav.removeAttribute("class");
+  curtain.classList.remove("curtain-open");
 }
 
-toggleTheme.addEventListener("click", function () {
-  const themeLight = document.body.classList.contains("light");
-
-  if (themeLight) {
-    document.body.classList.replace("light", "dark");
-    localStorage.setItem("theme", "dark");
+navButton.addEventListener("click", () => {
+  if (nav.classList.contains("nav-open")) {
+    handleNav();
   } else {
-    document.body.classList.replace("dark", "light");
-    localStorage.setItem("theme", "light");
+    header.style.backgroundColor = "#ffffff";
+    nav.classList.add("nav-open");
+    curtain.classList.add("curtain-open");
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 834) {
+    handleNav();
   }
 });
 
 const inputs = document.querySelectorAll(".color-picker input");
-const pictures = document.querySelectorAll(".gallery .picture-3");
-const pictures2 = document.querySelectorAll(".gallery .picture-4");
+const pictureGroups = [document.querySelectorAll(".gallery .picture-3"), document.querySelectorAll(".gallery .picture-4"), document.querySelectorAll(".gallery .picture-5")];
 
-inputs.forEach(function (input, index) {
-  input.addEventListener("change", function () {
-    inputs.forEach(function (input) {
-      input.removeAttribute("checked");
-    });
-    pictures.forEach(function (picture) {
-      picture.style.display = "none";
-    });
-    pictures2.forEach(function (picture) {
-      picture.style.display = "none";
+inputs.forEach((input, index) => {
+  input.addEventListener("change", () => {
+    inputs.forEach((input) => input.removeAttribute("checked"));
+
+    pictureGroups.forEach((group) => {
+      group.forEach((picture) => {
+        picture.style.display = "none";
+      });
     });
 
     inputs[index].setAttribute("checked", "");
-    pictures[index].removeAttribute("style");
-    pictures2[index].removeAttribute("style");
+
+    pictureGroups.forEach((group) => {
+      if (group[index]) {
+        group[index].removeAttribute("style");
+      }
+    });
   });
 });
