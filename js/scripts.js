@@ -1,26 +1,33 @@
 const header = document.querySelector("header");
 const navButton = document.querySelector("header button");
 const nav = document.querySelector("header nav");
-const curtain = document.querySelector(".curtain");
+const curtain = document.querySelector("header + div");
+const main = document.querySelector("main");
 
 function handleNav() {
-  header.removeAttribute("style");
-  nav.removeAttribute("class");
-  curtain.classList.remove("curtain-open");
+  header.removeAttribute("class");
+  curtain.removeAttribute("class");
+  main.removeAttribute("inert");
 }
 
 navButton.addEventListener("click", () => {
-  if (nav.classList.contains("nav-open")) {
+  if (header.classList.contains("nav-open")) {
     handleNav();
   } else {
-    header.style.backgroundColor = "#ffffff";
-    nav.classList.add("nav-open");
+    header.classList.add("nav-open");
     curtain.classList.add("curtain-open");
+    main.setAttribute("inert", "");
   }
 });
 
 window.addEventListener("resize", () => {
   if (window.innerWidth >= 834) {
+    handleNav();
+  }
+});
+
+window.addEventListener("scroll", () => {
+  if (header.classList.contains("nav-open") && window.screenY > 0) {
     handleNav();
   }
 });

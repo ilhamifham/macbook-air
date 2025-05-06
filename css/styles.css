@@ -1,4 +1,5 @@
 @import url("resets.css");
+@import url("fonts.css");
 @import url("variables.css");
 
 html {
@@ -7,48 +8,56 @@ html {
 
 body {
   min-width: 20rem;
-  background-color: var(--color-bg);
-  color: var(--color-fg-1);
+  background-color: var(--color-pale-white);
+  color: var(--color-medium-grey);
   font-size: 1.0625rem;
   line-height: 1.4705882353;
   letter-spacing: -0.022em;
 }
 
 :focus-visible {
-  outline-color: dodgerblue;
+  outline-color: var(--color-dodger-blue);
 }
 
 /* ===== Utilities ===== */
 
-.ai-text {
-  background-image: var(--ai-gradient);
+.sf-pro-display-semibold {
+  font-family: var(--font-SF-Pro-Display-Semibold);
+}
+
+.sf-pro-text-semibold {
+  font-family: var(--font-SF-Pro-Text-Semibold);
+}
+
+.ai-text,
+.heading-text {
+  color: var(--color-white);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
   display: inline;
+}
+
+.ai-text {
+  background-image: var(--ai-gradient);
 }
 
 .heading-text {
-  font-family: var(--font-SF-Pro-Display-Semibold);
   background-image: var(--heading-gradient);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  white-space: nowrap;
-  display: inline;
 }
 
 .button {
-  background-color: var(--header-link-bg);
-  color: var(--header-link-fg);
+  background-color: var(--color-dodger-blue);
+  color: var(--color-white);
   text-align: center;
-  border: 1px solid var(--header-link-bg);
+  border: 1px solid var(--color-dodger-blue);
   border-radius: 100px;
   white-space: nowrap;
 }
 
 em {
   font-style: normal;
-  color: var(--title);
+  color: var(--color-almost-black);
 }
 
 .content {
@@ -57,18 +66,37 @@ em {
   margin: 0 auto;
 }
 
+.welcome .content,
+.design .content {
+  max-width: 25.4375rem;
+}
+
+@media only screen and (min-width: 45.875rem) {
+  .welcome .content,
+  .design .content {
+    max-width: 46rem;
+  }
+}
+
 @media only screen and (min-width: 52.125rem) {
   .content {
     padding: 0 1.375rem;
   }
 }
 
+@media only screen and (min-width: 66.75rem) {
+  .welcome .content,
+  .design .content {
+    max-width: 64rem;
+  }
+}
+
 /* ===== Header ===== */
 
 header {
-  background-color: var(--color-bg-2);
-  color: var(--color-fg);
-  border-bottom: 1px solid var(--color-bg-1);
+  background-color: var(--color-alpha-white);
+  color: var(--color-black);
+  border-bottom: 1px solid var(--color-silver);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
   min-height: 48px;
@@ -80,6 +108,10 @@ header {
   padding: 0.6875rem 0;
 }
 
+header.nav-open {
+  background-color: var(--color-white);
+}
+
 header .content {
   display: flex;
   align-items: center;
@@ -88,7 +120,6 @@ header .content {
 }
 
 header h1 {
-  font-family: var(--font-SF-Pro-Display-Semibold);
   font-size: 1.1875rem;
   line-height: 1.2622;
   letter-spacing: 0.012em;
@@ -100,15 +131,24 @@ header button {
   height: 1.4985rem;
 }
 
+header button svg {
+  transition: transform 300ms linear;
+}
+
+header.nav-open button svg {
+  transform: rotateX(180deg);
+}
+
 header nav {
   width: 100%;
   height: 0;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
+  transition: all 600ms linear;
 }
 
-header nav.nav-open {
+header.nav-open nav {
   height: inherit;
   opacity: inherit;
   visibility: inherit;
@@ -136,20 +176,21 @@ header li .active {
 
 header li .active::before {
   content: "";
-  width: 1px;
+  width: 2px;
   height: 0.75rem;
   position: absolute;
-  background-color: var(--color-fg);
+  background-color: var(--color-black);
   left: -1rem;
 }
 
-.curtain {
+header + div {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #e8e8ed66;
+  height: 100vh;
+  background-color: var(--color-alpha-white);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   z-index: 1;
@@ -157,7 +198,7 @@ header li .active::before {
   visibility: hidden;
 }
 
-.curtain.curtain-open {
+header + div.curtain-open {
   opacity: inherit;
   visibility: inherit;
 }
@@ -178,18 +219,18 @@ header li .active::before {
   header ul {
     padding: 0;
     display: flex;
-    gap: 1.5rem;
   }
 
   header li a {
     font-size: 0.75rem;
     line-height: 22px;
     height: auto;
+    margin-left: 1.5rem;
   }
 
   header li .active::before {
     width: 100%;
-    height: 1px;
+    height: 2px;
     left: inherit;
     bottom: -0.8125rem;
   }
@@ -209,42 +250,43 @@ header li .active::before {
 /* ===== Section - Welcome ===== */
 
 .welcome {
-  padding: 5.5rem 0 5.9375rem;
+  margin-top: 3rem;
+  padding: 2.5rem 0 5.9375rem;
+  background: linear-gradient(180deg, #d4eaf6, #f9f9f9 75%, #fbfbfb);
 }
 
-.welcome .content h2 {
+.welcome h2 {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3125rem;
   line-height: 1.1666666667;
   letter-spacing: 0.009em;
-  font-family: var(--font-SF-Pro-Display-Semibold);
-  color: var(--title);
+  color: var(--color-almost-black);
+  margin-bottom: 0.5rem;
 }
 
-.welcome .content .tagline {
+.welcome .tagline {
   text-align: center;
-  font-size: 2.1875rem;
+  font-size: 2.125rem;
   line-height: 1.257144;
   letter-spacing: 0em;
 }
 
-.welcome .content picture {
-  max-width: 19.5rem;
+.welcome picture {
+  max-width: 18.969rem;
   margin: 2.3125rem auto 2.8rem;
 }
 
-.welcome .content .description {
+.welcome .description {
   text-align: center;
 }
 
-.welcome .content .description .ai {
-  font-family: var(--font-SF-Pro-Display-Semibold);
+.welcome .ai {
   font-size: 1.3125rem;
   line-height: 1.1904761905;
   letter-spacing: 0.011em;
 }
 
-.welcome .content .description a {
+.welcome .button {
   font-size: 1.0625rem;
   line-height: 1.1764805882;
   letter-spacing: -0.022em;
@@ -253,17 +295,16 @@ header li .active::before {
   margin: 1rem 0;
 }
 
-.welcome .content .description .price {
+.welcome .price {
   white-space: nowrap;
   font-size: 0.875rem;
   font-family: var(--font-SF-Pro-Text-Semibold);
-  color: var(--title);
+  color: var(--color-almost-black);
   line-height: 1.2857742857;
   letter-spacing: -0.016em;
 }
 
-.welcome .content .description .info {
-  font-family: var(--font-SF-Pro-Display-Semibold);
+.welcome .info {
   font-size: 1.3125rem;
   line-height: 1.1904761905;
   letter-spacing: 0.011em;
@@ -273,74 +314,76 @@ header li .active::before {
 
 @media only screen and (min-width: 45.875rem) {
   .welcome {
-    padding: 8.625rem 0 8.4375rem;
+    padding: 5.625rem 0 8.4375rem;
   }
 
-  .welcome .content h2 {
+  .welcome h2 {
     font-size: 1.75rem;
     line-height: 1.1428571429;
     letter-spacing: 0.007em;
   }
 
-  .welcome .content .tagline {
+  .welcome .tagline {
     font-size: 3.5rem;
     line-height: 1.0714285714;
     margin-top: 0.875rem;
   }
 
-  .welcome .content picture {
-    max-width: 45.25rem;
+  .welcome picture {
+    max-width: 45.3125rem;
     margin: 4.6875rem auto;
   }
 
-  .welcome .content .description .ai {
+  .welcome .ai {
     font-size: 1.75rem;
     line-height: 1.1428571429;
     letter-spacing: 0.007em;
   }
 
-  .welcome .content .description .price {
+  .welcome .price {
     font-size: 1.0625rem;
     line-height: 1.2353641176;
     letter-spacing: -0.022em;
   }
 
-  .welcome .content .description .info {
+  .welcome .info {
     max-width: 36rem;
   }
 }
 
 @media only screen and (min-width: 66.75rem) {
   .welcome {
-    padding: 6.5rem 0 8.75rem;
+    margin-top: 3.25rem;
+    padding: 3.25rem 0 8.75rem;
   }
 
-  .welcome .content h2 {
+  .welcome h2 {
     font-size: 2rem;
     line-height: 1.125;
     letter-spacing: 0.004em;
   }
 
-  .welcome .content .tagline {
-    font-size: 3.75rem;
+  .welcome .tagline {
+    font-size: 3.5rem;
+    margin-top: 0.8125rem;
   }
 
-  .welcome .content picture {
-    max-width: 51.75rem;
+  .welcome picture {
+    max-width: 51.625rem;
     margin: 2.375rem auto 2.6rem;
   }
 
-  .welcome .content .description .ai {
+  .welcome .ai {
     font-size: 2rem;
     line-height: 1.125;
     letter-spacing: 0.004em;
   }
 
-  .welcome .content .description a {
+  .welcome .button {
     margin: 1.5rem 0;
   }
 
-  .welcome .content .description .info {
+  .welcome .info {
     font-size: 1.5rem;
     line-height: 1.1666666667;
     letter-spacing: 0.009em;
@@ -354,56 +397,48 @@ header li .active::before {
   overflow-x: hidden;
 }
 
-.design .content {
-  max-width: 25.4375rem;
-}
-
-.design .content h2 {
-  font-family: var(--font-SF-Pro-Text-Semibold);
+.design h2 {
   text-transform: uppercase;
   font-size: 0.875rem;
   line-height: 1.2857742857;
   letter-spacing: -0.016em;
-  color: var(--title);
+  color: var(--color-almost-black);
 }
 
-.design .content .heading-text {
+.design .heading-text {
   line-height: 1.257144;
   letter-spacing: 0em;
-  font-size: 2.1875rem;
+  font-size: 2.125rem;
   margin-top: 0.375rem;
   display: inline-block;
   margin-left: -0.0625rem;
 }
 
-.design .content picture {
-  margin: 2.8125rem 0;
-  background-color: var(--image-bg);
-  border-radius: var(--radius);
+.design picture {
+  margin: 4.8125rem 0;
 }
 
-.design .content .picture-1 {
+.design .picture-1 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.design .content .picture-1 img {
-  width: 45.875rem;
+.design .picture-1 img {
+  width: 35.75rem;
 }
 
-.design .content .info {
-  font-family: var(--font-SF-Pro-Display-Semibold);
+.design .info {
   font-size: 1.3125rem;
   line-height: 1.1904761905;
   letter-spacing: 0.011em;
 }
 
-.design .content .size {
+.design .size {
   position: relative;
 }
 
-.design .content .size-info {
+.design .size-info {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -414,38 +449,36 @@ header li .active::before {
   justify-content: center;
 }
 
-.design .content .size-info div:first-child,
-.design .content .size-info div:last-child {
+.design .size-info div:first-child,
+.design .size-info div:last-child {
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-SF-Pro-Display-Semibold);
-  color: var(--title);
+  color: var(--color-almost-black);
 }
 
-.design .content .size-info div:first-child {
+.design .size-info div:first-child {
   text-align: right;
   margin-right: 2.5rem;
 }
 
-.design .content .size-info div:last-child {
+.design .size-info div:last-child {
   margin-left: 2.5rem;
 }
 
-.design .content .size-info div span:first-child {
+.design .size-info div span:first-child {
   font-size: 2.5rem;
   line-height: 1.1;
   letter-spacing: 0em;
 }
 
-.design .content .size-info div span:last-child {
+.design .size-info div span:last-child {
   font-size: 1.1875rem;
   line-height: 1.21053;
   letter-spacing: 0.012em;
 }
 
-.design .content .info-2 {
-  font-family: var(--font-SF-Pro-Display-Semibold);
+.design .info-2 {
   font-size: 1.1875rem;
   line-height: 1.21053;
   letter-spacing: 0.012em;
@@ -563,35 +596,31 @@ header li .active::before {
 }
 
 @media only screen and (min-width: 45.875rem) {
-  .design .content {
-    max-width: 46rem;
-  }
-
-  .design .content .heading-text {
+  .design .heading-text {
     line-height: 1.0714285714;
     font-size: 3.5rem;
     margin-top: 0.5rem;
     margin-left: -0.125rem;
   }
 
-  .design .content .picture-1 img {
-    width: 66.75rem;
+  .design .picture-1 img {
+    width: 52.469rem;
   }
 
-  .design .content .size-info div:first-child {
+  .design .size-info div:first-child {
     margin-right: 4.5rem;
   }
 
-  .design .content .size-info div:last-child {
+  .design .size-info div:last-child {
     margin-left: 4.5rem;
   }
 
-  .design .content .size-info div span:first-child {
+  .design .size-info div span:first-child {
     font-size: 3.5rem;
     line-height: 1.0714285714;
   }
 
-  .design .content .size-info div span:last-child {
+  .design .size-info div span:last-child {
     font-size: 1.75rem;
     line-height: 1.1428571429;
     letter-spacing: 0.007em;
@@ -664,46 +693,42 @@ header li .active::before {
 }
 
 @media only screen and (min-width: 66.75rem) {
-  .design .content {
-    max-width: 64rem;
-  }
-
-  .design .content .heading-text {
+  .design .heading-text {
     line-height: 1.0555555556;
     font-size: 4.5rem;
     margin-left: -0.1875rem;
   }
 
-  .design .content .picture-1 img {
-    width: 108rem;
+  .design .picture-1 img {
+    width: 89.25rem;
   }
 
-  .design .content .info {
+  .design .info {
     font-size: 1.5rem;
     line-height: 1.16667;
     letter-spacing: 0.009em;
   }
 
-  .design .content .size-info div:first-child {
+  .design .size-info div:first-child {
     margin-right: 5.9325rem;
   }
 
-  .design .content .size-info div:last-child {
+  .design .size-info div:last-child {
     margin-left: 5.9325rem;
   }
 
-  .design .content .size-info div span:first-child {
+  .design .size-info div span:first-child {
     font-size: 4.5rem;
     line-height: 1.0555555556;
   }
 
-  .design .content .size-info div span:last-child {
+  .design .size-info div span:last-child {
     font-size: 2rem;
     line-height: 1.125;
     letter-spacing: 0.004em;
   }
 
-  .design .content .info-2 {
+  .design .info-2 {
     font-size: 1.3125rem;
     line-height: 1.1904761905;
     letter-spacing: 0.011em;
